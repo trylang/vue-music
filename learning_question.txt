@@ -1,0 +1,26 @@
+*** 代表没有解决的问题；
+
+
+1.为什么在开发阶段dependencies使用babel-runtime,在编译devDependencies使用babel-polyfill?
+  # transform-runtime只会对es6的语法进行转换，而不会对新api进行转换。
+    如果需要转换新api，就要引入babel-polyfill，且必须放在第一行.
+  # 在main.js 需要引入babel-polyfill,而babel-runtime不需要引入。
+
+2.npm install 在安装 npm 包时，有两种命令参数可以把它们的信息写入 package.json 文件：
+–save      //dependencies 生产环境（babel-runtime）
+–save-dev  //devDependencies 开发 （babel-polyfill）
+devDependencies 下列出的模块，是我们开发时用的，比如 gulp，它们不会被部署到生产环境。dependencies 下的模块，则是我们生产环境中需要的依赖。
+
+3. fastclick 插件是解决移动端300毫秒延迟的问题。
+
+4. Module build failed: ParseError: expected "indent", got "eos"?
+  #导致原因是stylus缩进不对，import引入需要和<style>对齐才可以。
+
+5. pc端的1像素在手机中会显示2像素，采用after伪类,所以就是用border-1px($color)方法就好。
+
+***6. 问题：为什么 @import "~common/stylus/mixin"，与 @import "../../common/stylus/mixin" 同样都引入正确？
+
+
+
+
+

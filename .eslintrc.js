@@ -26,7 +26,7 @@ module.exports = {
     // 不检测行末是否有空行
     'eol-last': 0,
     'space-before-function-paren': 0,
-    'indent': [2, "tab"],
+    'indent': ["error", 2],
     'no-tabs': 0
   }
 }
