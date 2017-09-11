@@ -1,4 +1,4 @@
-# vue0music
+# vue-music
 
 > vue-music
 
