@@ -1,6 +1,6 @@
 <template>
-  <div class="slider">
-    <div class="slider-group">
+  <div class="slider" ref="slider">
+    <div class="slider-group" ref="sliderGroup">
       <slot>
       </slot>
     </div>
@@ -34,6 +34,28 @@ export default {
     return {
       dots: [],
       currentIndex: 0
+    }
+  },
+  mounted() {
+    setTimeout(() => {
+      this._setSliderWidth()
+      this._initSlider()
+    })
+  },
+  methods: {
+    _initSlider() {
+      this.slider = new BScroll(this.$refs.slider, {
+        scrollX: true,
+        scrollY: false,
+        momentum: false,
+        snap: true,
+        snapLoop: this.loop,
+        snapThreshold: 0.3,
+        snapSpeed: 400
+      })
+    },
+    _setSliderWidth() {
+      this.children = this.$refs.sliderGroup.children
     }
   },
   components: {
