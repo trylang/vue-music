@@ -20,6 +20,21 @@ devDependencies 下列出的模块，是我们开发时用的，比如 gulp，�
 
 ***6. 问题：为什么 @import "~common/stylus/mixin"，与 @import "../../common/stylus/mixin" 同样都引入正确？
 
+7. 在scroll中，scroll 需要有recommend-content的样式，否则就不会出现滚动状态。
+
+8.better-scroll的要求，需要父容器固定好高度，子容器撑开高度。
+
+9.Ignore certain elements with needsclick
+
+Sometimes you need FastClick to ignore certain elements. You can do this easily by adding the needsclick class.
+
+<a class="needsclick">Ignored by FastClick</a>
+
+在本节中遇到的问题则是scroll中有点击事件与fastclick中的点击事件相冲突，需要如此解决。
+
+10.在轮播图和歌单数据异步加载，不知先后，会影响scroll计算子容器盒子高度时，使用loadingImage函数，等待图片加载完毕后再刷新一遍scroll，确保计算好高度。
+
+***11. @load 方法没有找到。
 
 
 
