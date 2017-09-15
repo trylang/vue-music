@@ -40,10 +40,10 @@ export default {
       }
       list.forEach((item, index) => {
         if (index < HOT_SINGER_LEN) {
-          map.hot.items.push(new Singer{
+          map.hot.items.push(new Singer({
             name: item.Fsinger_name,
             id: item.Fsinger_mid
-          })
+          }))
         }
         const key = item.Findex
         if (!map[key]) {
@@ -57,19 +57,19 @@ export default {
           id: item.Fsinger_mid
         }))
       })
-      //为了得到有序列表，需要处理map
+      // 为了得到有序列表，需要处理map
       let ret = []
       let hot = []
       for (let key in map) {
         let val = map[key]
         if (val.title.match(/[a-zA-Z]/)) {
           ret.push(val)
-        }else if (val.title === HOT_NAME) {
+        } else if (val.title === HOT_NAME) {
           hot.push(val)
         }
       }
-      ret.sort((a,b) => {
-        return a.title.charCodeAt(0) - b.title.chatCodeAt(0)
+      ret.sort((a, b) => {
+        return a.title.charCodeAt(0) - b.title.charCodeAt(0)
       })
       return hot.concat(ret)
     }
