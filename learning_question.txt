@@ -37,5 +37,8 @@ Sometimes you need FastClick to ignore certain elements. You can do this easily 
 ***11. @load 方法没有找到。
 
 
+12.在components里面注入组件时，必须第一个字母大写，在template中写成小写，不然就会出错。
+
+
 
 
