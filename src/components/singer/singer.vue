@@ -10,6 +10,7 @@ import {getSingerList} from 'api/singer'
 import {ERR_OK} from 'api/config'
 import Singer from 'common/js/singer'
 import listView from 'base/listview/listview'
+import {mapMutations} from 'vuex'
 
 const HOT_SINGER_LEN = 10
 const HOT_NAME = '热门'
@@ -31,6 +32,8 @@ export default {
       this.$router.push({
         path: `singer/${singer.id}`
       })
+      // 将paload参数singer传入setSinger中，就实现了对mutation的提交
+      this.setSinger(singer)
     },
     _getSingerList() {
       getSingerList().then((res) => {
@@ -80,7 +83,11 @@ export default {
         return a.title.charCodeAt(0) - b.title.charCodeAt(0)
       })
       return hot.concat(ret)
-    }
+    },
+    ...mapMutations({
+      // 做映射，
+      setSinger: 'SET_SINGER'
+    })
   },
   components: {
     listView

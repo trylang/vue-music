@@ -1,0 +1,1 @@
+export const singerhaha = state => state.singer

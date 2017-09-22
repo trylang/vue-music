@@ -40,5 +40,18 @@ Sometimes you need FastClick to ignore certain elements. You can do this easily 
 12.在components里面注入组件时，必须第一个字母大写，在template中写成小写，不然就会出错。
 
 
+13.使用vuex，会建立store文件夹。 
+		1）里面的index.js是入口文件；
+		2）所有的状态会用state.js来管理；
+		3）存放所有的mutations，放在mutations.js文件里；
+		4）所有与mutations相关的名字，即字符串常量，会存放在mutation-types.js 文件中；（如果想要写mutation.js文件时，现在mutation-types.js中建立常量）
+		5）actions.js 文件会存放一些异步操作，异步修改等，或者对mutation的封装相关的；
+		6）获取state的映射，会放在getters.js中；从此文件中取数据到组件中。
+
+
+********14. 解决了一个大问题，但却不知道是为什么？
+	在注册vuex时，创建的store文件夹，在main.js中，注册store时，必须是小写，如果写成首字母大写的Store，则直接报错，"TypeError: Cannot read property 'getters' of undefined"。
+
+
 
 
