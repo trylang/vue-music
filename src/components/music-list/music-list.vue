@@ -6,7 +6,100 @@
 		<h1 class="title" v-html="title"></h1>
 		<div class="bg-image" :style="bgStyle">			
 		</div>
-		<scroll :data="songs"></scroll>
+		<scroll :data="songs">
+			<div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahaheweweweaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahewe3443ahaahah</div>
+				<div>h3434ahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>haheweweahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hawewewhahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hdwdwewahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>wewewehahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahawe3e33e3h</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+				<div>hahahaahah</div>
+			</div>
+		</scroll>
 	</div>
 </template>
 
@@ -37,6 +130,7 @@ export default {
   },
   computed: {
     bgStyle() {
+      console.log(this.songs)
       return `background-image:url(${this.bgImage})`
     }
   },
