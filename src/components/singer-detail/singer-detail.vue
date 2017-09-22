@@ -22,10 +22,10 @@ export default {
   },
   computed: {
     title() {
-      return this.singer.name
+      return this.singerhaha.name
     },
     bgImage() {
-      return this.singer.avatar
+      return this.singerhaha.avatar
     },
     ...mapGetters([
       'singerhaha'
