@@ -1,9 +1,10 @@
 // 将数据直接可以dom绑定化，使用类比直接创建对象有优势，可扩展性强
 export default class Song {
-  constructor({id, mid, singer, album, duration, image, url}) {
+  constructor({id, mid, singer, name, album, duration, image, url}) {
     this.id = id
     this.mid = mid
     this.singer = singer
+    this.name = name
     this.album = album
     this.duration = duration
     this.image = image

@@ -1,103 +1,23 @@
 <template>
 	<div class="music-list">
-		<div class="back">
+		<div class="back" @click="back">
 			<i class="icon-back"></i>
 		</div>
 		<h1 class="title" v-html="title"></h1>
-		<div class="bg-image" :style="bgStyle">			
+		<div class="bg-image" :style="bgStyle" ref="bgImage">
+			<div class="play-wrapper">
+				<div class="play" v-show="songs.length>0">
+					<i class="icon-play"></i>
+					<span class="text">随机播放全部</span>
+				</div>
+			</div>		
 		</div>
-		<scroll :data="songs">
-			<div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahaheweweweaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahewe3443ahaahah</div>
-				<div>h3434ahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>haheweweahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hawewewhahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hdwdwewahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>wewewehahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahawe3e33e3h</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
-				<div>hahahaahah</div>
+		<scroll :data="songs" class="list" ref="list">
+			<div class="song-list-wrapper">
+				<song-list @selectItem="selectItem3" :songs="songs"></song-list>
+			</div>
+			<div v-show="!songs.length" class="loading-container">
+				<loading></loading>
 			</div>
 		</scroll>
 	</div>
@@ -105,6 +25,17 @@
 
 <script>
 import Scroll from 'base/scroll/scroll'
+import SongList from 'base/song-list/song-list'
+import Loading from 'base/loading/loading'
+
+import {mapActions} from 'vuex'
+// import {prefixStyle} from 'common/js/dom'
+
+// const RESERVED_HEIGHT = 40
+
+// const transform = prefixStyle('transform')
+// const backdrop = prefixStyle('backdrop-filter')
+
 export default {
 
   name: 'music-list',
@@ -134,8 +65,28 @@ export default {
       return `background-image:url(${this.bgImage})`
     }
   },
+  mounted() {
+    this.imageHeight = this.$refs.bgImage.clientHeight
+    this.$refs.list.$el.style.top = `${this.imageHeight}px`
+  },
+  methods: {
+    back() {
+      this.$router.back()
+    },
+    selectItem3(item, index) {
+      this.selectPlay({
+        list: this.songs,
+        index
+      })
+    },
+    ...mapActions([
+      'selectPlay'
+    ])
+  },
   components: {
-    Scroll
+    Scroll,
+    SongList,
+    Loading
   }
 }
 </script>
@@ -220,6 +171,7 @@ export default {
       top: 0
       bottom: 0
       width: 100%
+      overflow: hidden
       background: $color-background
       .song-list-wrapper
         padding: 20px 30px
